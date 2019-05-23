@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IUser } from '../model/user.model';
+import { USER_DATA } from '../model/mocks';
 
 @Component({
     // selector : "[app-users]",
@@ -13,20 +14,18 @@ export class UsersComponent{
     @Input('title') 
     title : string;
 
+    user : IUser;
+
+    constructor(){
+        this.user = USER_DATA;
+        console.log("[USER_DATA]", USER_DATA);
+    }
+
     moreInfo(user : IUser){
         alert(`Mr. ${user.lastName} is working with ${user.company}!!`);
     }
 
-    user : IUser = {
-        firstName : "Bill",
-        lastName : "Gates",
-        isWorking : true,
-        income : 50000,
-        dob : new Date("Dec 21, 1965"),
-        company : "Microsoft",
-        vote : 120,
-        image : 'assets/images/bill.jpg'
-    }
+    
 }
 
 // Selectors Types: 
