@@ -261,8 +261,16 @@
 // import { Foo, Student as stud, MAGIC_NUMBER } from './student';
 
 import * as student from './student';
+import { Person } from './person';
 
-let foo = new student.Student("Foo", "Bar", 42);
+let user : Person = {
+    firstName : "Foo",
+    lastName:"Bar",
+    age : 32,
+    dob : new Date("Dec 1, 1975")
+}
+
+let foo = new student.Student(user);
 console.log(foo.greet());
 
 console.log(student.MAGIC_NUMBER);
@@ -285,9 +293,39 @@ console.log(student.MAGIC_NUMBER);
 
 
 
+// Decorators : 4 types / levels :
+
+//Class level :
+
+    // - Component : @Component({})
+    // - Services : @Injectable()
+    // - Directive : @Directive()
+    // - Pipe : @Pipe()
+    // - Modules : @NgModule({})
+
+//Method level
+    // - @HostListener()
+
+// Property level
+    // @Input()
+    // @Output()
+    // @HostBinding()
+
+// Parameter level
+    //@Inject()
 
 
 
-// Module system
-// Decorators
-// Additional types
+
+
+
+
+
+
+
+
+// Additional types : enum, void, any
+
+// let x : any = "Some String";
+
+// x = true;
