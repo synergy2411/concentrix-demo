@@ -1,12 +1,26 @@
 
 <ng-content select="header"></ng-content>
 
-<h2>{{ user.firstName }} {{ user.lastName }}</h2>
+<!-- <h2 app-highlight>{{ user.firstName }} {{ user.lastName }}</h2> -->
+<h2 appDynamicHighlight [myColor]="'grey'">{{ user.firstName }} {{ user.lastName }}</h2>
 
-<p>Date of Birth : {{ user.dob }}</p>
+<!-- <p [ngClass]="'border'">Date of Birth : {{ user.dob }}</p> -->
+<!-- <p [ngClass]="['border', 'feature']">Date of Birth : {{ user.dob }}</p> -->
+<!-- <p [ngClass]="{'border' : false, 'feature' : true}">Date of Birth : {{ user.dob }}</p> -->
+<p [ngClass]="dynamicClass">Date of Birth : {{ user.dob }}</p>
+
+<p>
+  <button class="btn btn-sm" (click)="onToggle()">Toggle</button>
+</p>
 
 <!-- Property Binding Syntax -->
-<p>Income : <span [innerHTML]="user.income"></span></p>
+<p *ngIf="user.isWorking; else elseTemplate">Income : <span [innerHTML]="user.income"></span></p>
+
+<!-- Desugar the ngIf -->
+
+<!-- <ng-template [ngIf]="user.isWorking">
+  <p>Income from Desugar If : {{ user.income }}</p>
+</ng-template> -->
 
 <!-- <p><ng-content select="main"></ng-content></p> -->
 
@@ -16,3 +30,8 @@
 </p>
 
 <ng-content select="footer"></ng-content>
+
+
+<ng-template #elseTemplate>
+  <p>Mr. {{ user.lastName}} is not working now!</p>
+</ng-template>

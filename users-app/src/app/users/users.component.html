@@ -3,31 +3,38 @@
     <h2>Property belongs to Parent :: {{title}}</h2>
 
     <ul class="list-unstyled">
-        <li class="well">
+        <ng-container *ngIf="showList">
+            <li class="well"
+                *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd">
 
-            <div class="row">
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <app-user-image (childEvent)="moreInfo($event)" [user]="user">
+                <!-- Index  :: {{ i }} <br>
+            Is this First element? :: {{ isFirst }} <br>
+            Is this Odd Element :: {{ isOdd }} -->
 
-                        <h2> Some contentss from Parent...</h2>
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <app-user-image (childEvent)="moreInfo($event)" [user]="user">
 
-                    </app-user-image>
+                            <h2> Some contentss from Parent...</h2>
+
+                        </app-user-image>
+                    </div>
+              
+                    <div class="col-xs-9 col-sm-9 col-md-9">
+                        <app-user-info [user]="user">
+                            <header>This is header</header>
+                            <main>This is main Content.</main>
+                            <footer>This is footer</footer>
+
+                        </app-user-info>
+                    </div>
+
                 </div>
 
-                <div class="col-xs-9 col-sm-9 col-md-9">
-                    <app-user-info [user]="user">
-                        <header>This is header</header>
-                        <main>This is main Content.</main>
-                        <footer>This is footer</footer>
-
-                    </app-user-info>
-                </div>
-
-            </div>
 
 
 
-
-        </li>
+            </li>
+        </ng-container>
     </ul>
 </div>
