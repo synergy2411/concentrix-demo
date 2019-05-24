@@ -1,4 +1,5 @@
 
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +12,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { DynamicHighlightDirective } from './directives/dynamic-highlight.directive';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { CountryCodePipe } from './pipes/country-code.pipe';
 
 @NgModule({
   declarations: [               //Components, Pipes, Directives
@@ -19,7 +21,9 @@ import { RegisterComponent } from './auth/register/register.component';
     HighlightDirective,
     DynamicHighlightDirective,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PipeDemoComponent,
+    CountryCodePipe
   ],
   imports: [                    // Modules - built-in or custom
     BrowserModule, FormsModule, ReactiveFormsModule

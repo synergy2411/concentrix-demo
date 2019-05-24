@@ -1,20 +1,21 @@
-
 <ng-content select="header"></ng-content>
 
 <!-- <h2 app-highlight>{{ user.firstName }} {{ user.lastName }}</h2> -->
-<h2 appDynamicHighlight [myColor]="'grey'">{{ user.firstName }} {{ user.lastName }}</h2>
+<h2 appDynamicHighlight [myColor]="'grey'">{{ user.firstName | uppercase}} {{ user.lastName | uppercase}}</h2>
 
 <!-- <p [ngClass]="'border'">Date of Birth : {{ user.dob }}</p> -->
 <!-- <p [ngClass]="['border', 'feature']">Date of Birth : {{ user.dob }}</p> -->
 <!-- <p [ngClass]="{'border' : false, 'feature' : true}">Date of Birth : {{ user.dob }}</p> -->
-<p [ngClass]="dynamicClass">Date of Birth : {{ user.dob }}</p>
+<p [ngClass]="dynamicClass">Date of Birth : {{ user.dob | date : 'MM/dd/yyyy'}}</p>
 
 <p>
   <button class="btn btn-sm" (click)="onToggle()">Toggle</button>
 </p>
 
 <!-- Property Binding Syntax -->
-<p *ngIf="user.isWorking; else elseTemplate">Income : <span [innerHTML]="user.income"></span></p>
+<p *ngIf="user.isWorking; else elseTemplate">
+  Income : <span [innerHTML]="user.income | currency : 'INR'"></span>
+</p>
 
 <!-- Desugar the ngIf -->
 
