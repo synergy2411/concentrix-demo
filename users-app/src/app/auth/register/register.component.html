@@ -1,0 +1,43 @@
+<h1 class="text-primary text-center">
+  Register Form
+</h1>
+
+<form class="well" [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="username">Username : </label>
+    <input type="email" name="username" class="form-control" [formControl]="username">
+    <div [hidden]="username.untouched || username.valid">
+      <p class="text-danger">Some Problem with Username field.</p>
+
+      <div [hidden]="!username.hasError('required')">
+        *Username is mandatory field.
+      </div>
+
+      <div [hidden]="!username.hasError('minlength')">
+        *Username should have 6 characters atleast.
+      </div>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password : </label>
+    <input type="password" name="password" class="form-control" [formControl]="password">
+
+    <div [hidden]="password.untouched || password.valid">
+      <p class="text-danger">Some problem with password : </p>
+      <div [hidden]="!password.hasError('required')">
+        *Password is mandatory field.
+      </div>
+
+      <div [hidden] = "!password.hasError('needExclamation')">
+        *Password must contain ! sign.
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <button class="btn btn-block btn-primary" (click)="onRegister()" [disabled]="!registerForm.valid">
+      Register
+    </button>
+  </div>
+</form>
