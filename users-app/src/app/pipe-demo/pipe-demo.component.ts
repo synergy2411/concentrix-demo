@@ -7,6 +7,26 @@ import { Component } from '@angular/core';
 })
 export class PipeDemoComponent{
   
+  filteredStatus : string = "";
+
+  onAddNewTodo(){
+    this.todos.push({label : "New Task", status : "pending"});
+  }
+
+  todos = [{
+    label : "Some Task",
+    status : 'done'
+  },{
+    label : "New Task",
+    status : 'pending'
+  },{
+    label : "Some Task",
+    status : 'done'
+  },{
+    label : "New Task",
+    status : 'pending'
+  }]
+
   contact_no = 987654321;
 
   promise = new Promise((resolve, reject)=>{

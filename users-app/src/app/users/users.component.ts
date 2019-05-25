@@ -1,49 +1,57 @@
-import { Component, Input, 
-        OnChanges, 
-        SimpleChanges, 
-        OnInit, 
-        DoCheck, 
-        AfterContentInit, 
-        AfterContentChecked, 
-        AfterViewInit, 
-        AfterViewChecked, 
-        OnDestroy } from '@angular/core';
+import { Component, Input, SimpleChanges, Inject } from '@angular/core';
 import { IUser } from '../model/user.model';
-import { USER_DATA } from '../model/mocks';
+import { DataService } from '../services/data.service';
 
 @Component({
     // selector : "[app-users]",
     // selector : ".app-users",
-    selector : "app-users",
+    selector: "app-users",
     // template : `<h1>Users component loaded successfully!</h1>`
-    templateUrl : `./users.component.html`
+    templateUrl: `./users.component.html`,
+    // providers: [DataService]
 })
 export class UsersComponent {
 
-    @Input('title') 
-    title : string;
+    @Input('title')
+    title: string;
 
-    users : IUser[];
+    users: IUser[];
 
-    showList : boolean = true;
+    showList: boolean = true;
 
-    constructor(){
+    constructor(public dataService: DataService, 
+        @Inject('AddNumbers') add : any,
+        @Inject("COMPANY_NAME") companyName : string) {
+        console.log("Company Name : ", companyName);
+        console.log("Sum : ", add(5,7));
         // this.users = USER_DATA;
         // console.log("[Constructor]");
         // console.log("[USER_DATA in Constructor]");
     }
 
-    moreInfo(user : IUser){
+    onIncrease() {
+        this.dataService.counter++;
+    }
+
+    moreInfo(user: IUser) {
         alert(`Mr. ${user.lastName} is working with ${user.company}!!`);
     }
 
-    ngOnChanges(changes : SimpleChanges){
+    ngOnChanges(changes: SimpleChanges) {
         // console.log("[ngOnChanges]", changes);
     }
 
-    ngOnInit(){
+    ngOnInit() {
+      
         // console.log("[ngOnInit]");
-        this.users = USER_DATA;
+        // this.users = USER_DATA;
+        // this.users = this.dataService.getData();
+        // this.dataService.makeHttpCall();
+        // this.dataService.getJsonData()
+        // .subscribe (response => this.users = response['userdata']);
+
+        this.dataService.getDataFromAPI()
+        .subscribe(response => this.users = <IUser[]>response)
     }
     // ngDoCheck(){console.log("[ngDoCheck]")}
     // ngAfterContentInit(){console.log("[ngAfterContentInit]")}
@@ -51,7 +59,7 @@ export class UsersComponent {
     // ngAfterViewInit(){console.log("[ngAfterViewInit]")}
     // ngAfterViewChecked(){console.log("[ngAfterViewChecked]")}
     // ngOnDestroy(){console.log("[ngOnDestroy]")}
-    
+
 }
 
 // Selectors Types: 

@@ -5,3 +5,23 @@
 <h4>
   Contact Number : {{ contact_no | countryCode  }}
 </h4>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <input type="text" class="form-control" [(ngModel)] = "filteredStatus">
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <button class="btn btn-primary btn-block" (click)="onAddNewTodo()">
+      Add New Todo Item
+    </button>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let todo of todos | filter : filteredStatus : 'status'">
+    {{ todo.label }}
+
+    <span class="badge"> {{ todo.status }}</span>
+
+  </li>
+</ul>

@@ -6,14 +6,17 @@
 </div>
 
 
-<!-- <div class="container">
-  <app-register></app-register>
-</div> -->
-
-<!-- 
 <div class="container">
   <app-login></app-login>
-</div> -->
+</div>
+
+<br><br>
+
+<div class="container">
+  <app-register></app-register>
+</div>
+
+
 
 
 <!-- Attribute Selector -->
@@ -24,12 +27,19 @@
 
 <!-- <input type="text" [(ngModel)] = "title"> -->
 
-  <!-- Element Selector -->
+<!-- Element Selector -->
 <div class="container">
 
-    <app-pipe-demo></app-pipe-demo>
-    <br><br>
-    <app-users [title] = "title"></app-users>
+  <!-- <app-observable-demo></app-observable-demo> -->
+
+  <!-- <app-pipe-demo></app-pipe-demo> -->
+  <br><br>
+  <h3>Counter in AppComponent :: {{ dataService.counter }}</h3>
+  <button class="btn btn-default" (click)="onIncrease()"> Increase </button>
+  <br><br>
+  <ng-container *ngIf="authService.isUserAuthenticated()">
+    <app-users [title]="title"></app-users>
+  </ng-container>
 </div>
 
 <!-- Class Selector -->

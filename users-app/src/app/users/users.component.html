@@ -2,6 +2,9 @@
 
     <h2>Property belongs to Parent :: {{title}}</h2>
 
+    <h3>Counter in UsersComponent : {{ dataService.counter }}</h3>
+    <button class="btn btn-default" (click)="onIncrease()"> Increase </button>
+
     <ul class="list-unstyled">
         <ng-container *ngIf="showList">
             <li class="well"
