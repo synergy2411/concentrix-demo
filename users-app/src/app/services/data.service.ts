@@ -27,7 +27,7 @@ export class DataService {
 
     getDataFromAPI(){
         // return this.httpClient.get("https://cnx-demo.firebaseio.com/userdata.json?auth="+this.authService.getToken());
-        return this.httpClient.get("https://cnx-demo.firebaseio.com/userdata.json");
+        return this.httpClient.get<IUser[]>("https://cnx-demo.firebaseio.com/userdata.json");
     }
     constructor(private httpClient : HttpClient, private authService : AuthServiceService){}
-}
+}  

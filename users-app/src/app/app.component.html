@@ -1,4 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+<app-header></app-header>
+
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -7,6 +11,12 @@
 
 
 <div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<!-- <div class="container">
   <app-login></app-login>
 </div>
 
@@ -14,7 +24,7 @@
 
 <div class="container">
   <app-register></app-register>
-</div>
+</div> -->
 
 
 
@@ -28,19 +38,19 @@
 <!-- <input type="text" [(ngModel)] = "title"> -->
 
 <!-- Element Selector -->
-<div class="container">
+<!-- <div class="container"> -->
 
   <!-- <app-observable-demo></app-observable-demo> -->
 
   <!-- <app-pipe-demo></app-pipe-demo> -->
-  <br><br>
+  <!-- <br><br>
   <h3>Counter in AppComponent :: {{ dataService.counter }}</h3>
   <button class="btn btn-default" (click)="onIncrease()"> Increase </button>
   <br><br>
   <ng-container *ngIf="authService.isUserAuthenticated()">
     <app-users [title]="title"></app-users>
   </ng-container>
-</div>
+</div> -->
 
 <!-- Class Selector -->
 <!-- <div class="container">
