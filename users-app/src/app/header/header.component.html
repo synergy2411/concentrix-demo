@@ -1,10 +1,22 @@
 <div class="container">
-  <ul class="list-unstyled nav navbar-nav navbar-default">
-    <li><a [routerLink]="['login']">Login</a></li>
-    <li><a [routerLink]="['register']">Register</a></li>
-    <li><a [routerLink]="['pipe']">Pipe</a></li>
-    <li><a [routerLink]="['observable']">Observable</a></li>
-    <li><a [routerLink]="['product']">Product</a></li>
-    <li><a [routerLink]="['users']">Users</a></li>
-  </ul>
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-md-10">
+        <ul class="list-unstyled nav navbar-nav navbar-default">
+            <li *ngIf="!authService.isUserAuthenticated()"><a [routerLink]="['login']">Login</a></li>
+            <li *ngIf="!authService.isUserAuthenticated()"><a [routerLink]="['register']">Register</a></li>
+            <li><a [routerLink]="['pipe']">Pipe</a></li>
+            <li><a [routerLink]="['observable']">Observable</a></li>
+            <li><a [routerLink]="['product']">Product</a></li>
+            <li><a [routerLink]="['users']">Users</a></li>
+            <li><a [routerLink]="['employee']">Employee</a></li>
+            <li><a [routerLink]="['lazy']">Lazy</a></li>
+          </ul>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2" 
+        *ngIf="authService.isUserAuthenticated()">
+      <button class="btn btn-danger btn-block"
+        (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+  
 </div>

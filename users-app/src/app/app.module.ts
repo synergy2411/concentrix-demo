@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { APP_ROUTES } from './app.route';
 
@@ -49,7 +50,8 @@ import { SpecificationComponent } from './product/specification/specification.co
   ],
   imports: [                    // Modules - built-in or custom
     BrowserModule, FormsModule, ReactiveFormsModule,
-    HttpClientModule, RouterModule.forRoot(APP_ROUTES)
+    HttpClientModule, RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
   providers: [ LoginGaurdService, AuthServiceService,
     // Interceptor Registered
