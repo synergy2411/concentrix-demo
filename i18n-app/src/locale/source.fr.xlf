@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="pageH1Tag" datatype="html">
+        <source>Personal Information System</source>
+        <target>Système d'information personnel</target>
+        <note priority="1" from="description">A header</note>
+        <note priority="1" from="meaning">Screen notification</note>
+      </trans-unit>
+      <trans-unit id="label1" datatype="html">
+        <source>Person Id</source>
+        <target>Identifiant de la personne</target>
+      </trans-unit>
+      <trans-unit id="label2" datatype="html">
+        <source>Person Name</source>
+        <target>Nom d'une personne</target>
+      </trans-unit>
+      <trans-unit id="label3" datatype="html">
+        <source>Person Address</source>
+        <target>Adresse de la personne</target>
+      </trans-unit>
+      <trans-unit id="label4" datatype="html">
+        <source>Person City</source>
+        <target>Personne Ville</target>
+      </trans-unit>
+      <trans-unit id="label5" datatype="html">
+        <source>Person State</source>
+        <target>État personne</target>
+      </trans-unit>
+      <trans-unit id="label6" datatype="html">
+        <source>Person Occupation</source>
+        <target>Personne Occupation</target>
+      </trans-unit>
+      <trans-unit id="label7" datatype="html">
+        <source>New</source>
+        <target>Nouveau</target>
+      </trans-unit>
+      <trans-unit id="label8" datatype="html">
+        <source>Save</source>
+        <target>sauvegarder</target>
+      </trans-unit>
+      <trans-unit id="columnHeaderCaptions" datatype="html">
+        <source>{VAR_SELECT, select, c,{c}}</source>
+        <target>{VAR_SELECT, select, PersonId{PersonId} 
+PersonName{Nom d'une personne} Address{Adresse} City{Ville} 
+State{Etat} Occupation{Occupation}}</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
