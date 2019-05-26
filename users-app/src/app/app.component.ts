@@ -1,7 +1,8 @@
 import { AuthServiceService } from './services/auth-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DataService } from './services/data.service';
 import * as firebase from 'firebase';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,20 @@ import * as firebase from 'firebase';
 export class AppComponent implements OnInit {
   title = 'My Awesome App!';
 
+  jsScripts = "<h1>Heading</h1> <script>alert('Hello')</script>";
+
+  dangerUrl = "javascript:alert('Hello World.')";
+  safeUrl : any;
+
   constructor(public dataService: DataService,
-              public authService : AuthServiceService) { }
+              public authService : AuthServiceService,
+              private sanitize : DomSanitizer,
+              private cdRef : ChangeDetectorRef
+              ) { 
+                // this.cdRef.detach();
+                this.safeUrl = this.sanitize.bypassSecurityTrustResourceUrl(this.dangerUrl);
+                // this.cdRef.reattach();
+              }
 
   ngOnInit() {
     firebase.initializeApp({

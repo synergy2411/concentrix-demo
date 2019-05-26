@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, Inject } from '@angular/core';
+import { Component, Input, SimpleChanges, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { IUser } from '../model/user.model';
 import { DataService } from '../services/data.service';
 
@@ -9,6 +9,7 @@ import { DataService } from '../services/data.service';
     // template : `<h1>Users component loaded successfully!</h1>`
     templateUrl: `./users.component.html`,
     // providers: [DataService]
+    changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent {
 

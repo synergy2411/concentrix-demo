@@ -30,6 +30,7 @@ import { LoginGaurdService } from './services/login-gaurd.service';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { MyTestComponent } from './my-test/my-test.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { SpecificationComponent } from './product/specification/specification.co
     HeaderComponent,
     ProductComponent,
     OverviewComponent,
-    SpecificationComponent
+    SpecificationComponent,
+    MyTestComponent
   ],
   imports: [                    // Modules - built-in or custom
     BrowserModule, FormsModule, ReactiveFormsModule,

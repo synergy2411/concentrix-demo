@@ -3,13 +3,39 @@
 <app-header></app-header>
 
 
+
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+
+  <h2>
+    <!-- Interpolation -->
+    Injected Script : {{ jsScripts }}
+  </h2>
+
+  <h2>
+    <!-- Property Binding -->
+    Property Binding Script :
+    <span [innerHTML]="jsScripts"></span>
+  </h2>
+ 
+  <br>
+  <br>
+
+  <a [href]="dangerUrl">Danger URL</a> <br>
+  <a [href]="safeUrl">Safe URL</a>
+
 </div>
 
 <div class="container">
+
+  <h3>Counter in AppComponent :: {{ dataService.counter }}</h3>
+  <button class="btn btn-default" (click)="onIncrease()"> Increase </button>
+  <br><br>
+
   <!-- <app-new-employee></app-new-employee> -->
 </div>
 
@@ -43,13 +69,11 @@
 <!-- Element Selector -->
 <!-- <div class="container"> -->
 
-  <!-- <app-observable-demo></app-observable-demo> -->
+<!-- <app-observable-demo></app-observable-demo> -->
 
-  <!-- <app-pipe-demo></app-pipe-demo> -->
-  <!-- <br><br>
-  <h3>Counter in AppComponent :: {{ dataService.counter }}</h3>
-  <button class="btn btn-default" (click)="onIncrease()"> Increase </button>
-  <br><br>
+<!-- <app-pipe-demo></app-pipe-demo> -->
+<!-- <br><br>
+  
   <ng-container *ngIf="authService.isUserAuthenticated()">
     <app-users [title]="title"></app-users>
   </ng-container>

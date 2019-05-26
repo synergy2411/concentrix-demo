@@ -22,4 +22,9 @@ export class LoginComponent {
 
   }
 
+  // SSO Login
+  onSSOLogin() {
+    this.authService.ssoLogin();
+  }
+
 }
